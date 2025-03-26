@@ -1,0 +1,117 @@
+sal
+
+-----------------------------------------------
+const express = require('express');
+const mongoose = require('mongoose');
+
+const app = express();
+const PORT = 5000;
+
+// Middleware to parse JSON requests
+app.use(express.json());
+
+// MongoDB connection setup
+async function connectDB() {
+    try {
+        await mongoose.connect('mongodb://127.0.0.1:27017/invoiceDB', {
+            useNewUrlParser: true,
+            useUnifiedTopology: true,
+        });
+        console.log('MongoDB connected successfully');
+    } catch (err) {
+        console.error('Database connection error:', err.message);
+        process.exit(1);
+    }
+}
+connectDB();
+
+const actSchema = new mongoose.Schema({
+    title: { type: String, required: true },
+    author: { type: String, required: true },
+    quantity: {
+      type: Number,
+      required: [true, 'Quantity is required'],
+      min: [1, 'Quantity must be at least 1'],
+    },
+  });
+  const Act = mongoose.model('Act', actSchema);
+
+  //get activity
+  app.get('/api/activities', async (req, res) => {
+    try {
+        const book = await Book.find();
+        res.status(200).json({ success: true, data: book });
+    } catch (err) {
+        res.status(500).json({ success: false, message: err.message });
+    }
+});
+// Start server
+app.listen(PORT, () => {
+    console.log(`Server running at http://localhost:${PORT}`);
+});
+
+**********************************************
+
+saloni 
+
+
+
+/* 
+Write a MongoDB query to find employees name, department and age, who are either 
+in the Engineering department or older than 40 years
+
+Database: test
+Collection: employees
+
+Sample Document:
+----------------
+{
+  "name": "Rajesh",
+  "age": 28,
+  "gender": "Male",
+  "department": "Engineering",
+  "position": "Software Engineer",
+  "salary": 70000,
+  "mobile": "9876543210"
+}
+
+Sample Output:
+--------------
+[
+  { name: 'Rajesh', age: 28, department: 'Engineering' },
+  { name: 'Karthik', age: 30, department: 'Engineering' }
+]
+
+
+Note: 
+=====
+To write the query, use printjson() method from 'mongosh' module
+e.g., To display all the documents from 'employees' collection 
+from 'test' database.
+    
+    => printjson( db.getSiblingDB('test').employees.find() )
+    Where,
+    db => databse connection object
+    getSiblingDB('test') => "test" is database name
+    employees => collections name
+    find => method to retrieve all the matched docuemnts
+
+*/
+
+
+
+printjson(db.getSiblingDB('test').employees.find({
+    $or: [
+        {department: "Engineering"},
+        {age:{ $gt: 40} 
+        }
+    ]
+    },
+    {
+      name: 1,
+      department: 1,
+      age: 1,
+      _id: 0
+    }
+  ).toArray()
+);

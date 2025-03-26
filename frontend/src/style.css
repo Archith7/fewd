@@ -1,0 +1,100 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+  }
+  
+  /* Navbar */
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background: white;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  .navbar input {
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+  }
+  
+  /* Hero Banner */
+  .hero {
+    background: linear-gradient(to right, #007bff, #6610f2);
+    color: white;
+    padding: 80px 20px;
+    text-align: center;
+  }
+  
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+  
+  /* Categories */
+  .container h2 {
+    margin-bottom: 20px;
+  }
+  
+  .d-flex button {
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    transition: 0.3s;
+  }
+  
+  .d-flex button:hover {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  /* Product Cards */
+  .card {
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    transition: 0.3s;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .card-img-top {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+  
+  .card-body {
+    text-align: center;
+  }
+  
+  /* Newsletter Signup */
+  .container.text-center {
+    background: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  input[type="email"] {
+    padding: 10px;
+    border-radius: 5px;
+    width: 60%;
+    margin: 10px 0;
+  }
+  
+  /* Footer */
+  footer {
+    background: #343a40;
+    color: white;
+    padding: 15px;
+  }
+  
