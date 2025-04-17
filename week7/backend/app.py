@@ -14,18 +14,18 @@ def get_weather():
 
     # Predefined or hardcoded weather data for testing
     fake_weather_data = {
-        'location': f"{city}, India",  # Just use the city for now
+        'location': f"{city}, Country",  # Just use the city for now
         'temperature': {
             'current': 41,  # Temperature in Celsius
-            'feels_like': 30,  # Feels like temperature
+            'feels_like': 0,  # Feels like temperature
         },
         'humidity': 70,  # Humidity in percentage
         'conditions': 'Clear sky',  # Weather conditions
         'wind': {
-            'speed': 5.6,  # Wind speed in meters per second
-            'direction': 'N-W',  # Wind direction
+            'speed': 5,  # Wind speed in meters per second
+            'direction': 'N',  # Wind direction
         },
-        'last_updated': '2025-03-26 12:20:00',  # Placeholder timestamp
+        'last_updated': '2025-03-26 12:00:00',  # Placeholder timestamp
     }
 
     return jsonify({'weather': fake_weather_data})
